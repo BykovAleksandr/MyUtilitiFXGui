@@ -1,4 +1,4 @@
-package engine.Xls;
+package engine.xls;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -47,11 +47,11 @@ public class SaveAsExlsFile {
 
 
             try {
-                FileOutputStream fos = new FileOutputStream(fileFolderName + ".xls");
+                FileOutputStream fos = new FileOutputStream(fileFolderName);
 
                 wb.write(fos);
                 fos.close();
-                JOptionPane.showMessageDialog(null, "Файл создан!");
+                //JOptionPane.showMessageDialog(null, "Файл создан!");
 
             } catch (IOException e) {
                 e.printStackTrace();

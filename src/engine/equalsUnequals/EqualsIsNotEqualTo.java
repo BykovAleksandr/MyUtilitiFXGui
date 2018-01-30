@@ -1,6 +1,5 @@
-package engine.EqualsUnequals;
+package engine.equalsUnequals;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class EqualsIsNotEqualTo {
@@ -30,6 +29,6 @@ public class EqualsIsNotEqualTo {
 
         }
 
-        JOptionPane.showMessageDialog(null, "Сравнение завершено.");
+        //JOptionPane.showMessageDialog(null, "Сравнение завершено.");
     }
 }

@@ -1,4 +1,4 @@
-package engine.Xls;
+package engine.xls;
 
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -11,39 +11,42 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ReadXlsFileSec {
-    //Serch value array list
+public class ReadXlsFileFst {
+    public static ArrayList<String> whatSerchArrayList = new ArrayList<>();
 
-    public static ArrayList<String> whearSerchArrayList = new ArrayList<>();
+    //TODO remake all
+    // в конструктор передаем путь к файлу
+    // read end whrit in arrayList search values
 
-    public ReadXlsFileSec(String readWherSerch){
 
-        // read and write values in arrayList for the search
-        // Читаем/парсим/проверяем вернувшиеся данные на "null"
+
+    public ReadXlsFileFst(String readWhatSerch) {
 
         try {
-            FileInputStream fis = new FileInputStream(readWherSerch);
+            FileInputStream fis = new FileInputStream(readWhatSerch);
             Workbook wb = new HSSFWorkbook(fis);
 
-            for (Row row : wb.getSheetAt(0)){
-
-                for (Cell cell : row){
+            // init arrayList serch Value
+            for (Row row : wb.getSheetAt(0)) {
+                for (Cell cell : row) {
                     String tmpString = ParserXlsFile.parserXlsFile(cell.toString());
-                    if (tmpString != null){
-                        whearSerchArrayList.add(tmpString);
+                    if (tmpString != null) {
+                        whatSerchArrayList.add(tmpString);
                     }
                 }
-
             }
-
-            JOptionPane.showMessageDialog(null, "Файл Где ищем успешно загружен!");
+            fis.close();
+            JOptionPane.showMessageDialog(null, "Файл с искомыми значениями успешно загружен!");
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
             e.printStackTrace();
         }
     }
-/*
+
+
+
+    /*
     public static String getCellText(Cell cell){
 
         String result = "";
