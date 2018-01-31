@@ -26,10 +26,10 @@
          <children>
             <MenuBar prefHeight="3.0" prefWidth="500.0">
               <menus>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu mnemonicParsing="false" text="Помощь         ">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#showDialogAbout" text="About" />
-                        <MenuItem mnemonicParsing="false" onAction="#showDialogAbout" text="Manual" />
+                    <MenuItem mnemonicParsing="false" onAction="#showDialogAbout" text="О программе" />
+                        <MenuItem mnemonicParsing="false" onAction="#showDialogAbout" text="Инструкция" />
                   </items>
                 </Menu>
               </menus>
@@ -45,13 +45,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="1. What we are looking for">
+                  <Label text="1. Что ищем:">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fstChooeseLabel" text="Path to file" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#fstChooseBtn" prefHeight="26.0" prefWidth="110.0" text="Choose" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="fstChooeseLabel" text="Путь к файлу" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#fstChooseBtn" prefHeight="26.0" prefWidth="110.0" text="Выбрать файл" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <ProgressIndicator fx:id="fstIndicator" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
@@ -67,13 +67,13 @@
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="2. Where we are looking for">
+                  <Label text="2. Где ищем:">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="secChooeseLabel" text="Path to file" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#secChooseBtn" prefHeight="26.0" prefWidth="110.0" text="Choose" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="secChooeseLabel" text="Путь к файлу" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#secChooseBtn" prefHeight="26.0" prefWidth="110.0" text="Выбрать файл" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <ProgressIndicator fx:id="secIndicator" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
@@ -88,13 +88,13 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="3. Save file">
+                  <Label text="3. Сохранить файл:">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="saveChooseLabel" text="Path to file" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#saveChooseBtn" prefHeight="26.0" prefWidth="110.0" text="Choose" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="saveChooseLabel" text="Путь к файлу" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#saveChooseBtn" prefHeight="26.0" prefWidth="110.0" text="Выбрать файл" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Separator layoutX="20.0" layoutY="253.0" prefWidth="460.0" />
@@ -109,12 +109,12 @@
                   <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="4. Start the program">
+                  <Label text="4. Запустить программу">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#startBtn" prefHeight="26.0" prefWidth="110.0" text="Start" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#startBtn" prefHeight="26.0" prefWidth="110.0" text="Старт" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <ProgressBar fx:id="bar" prefHeight="11.0" prefWidth="268.0" GridPane.rowIndex="1" />
                   <ProgressIndicator fx:id="thirdIndicator" prefHeight="40.0" prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
@@ -131,19 +131,19 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Num. of equal values:" />
-                  <Label text="Num. of unequal values:" GridPane.rowIndex="1" />
+                  <Label text="Кол. равных значений:" />
+                  <Label text="Кол. не равных значений:" GridPane.rowIndex="1" />
                   <Label fx:id="fstResult" text="0" GridPane.columnIndex="1" />
                   <Label fx:id="secResult" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Label layoutX="20.0" layoutY="348.0" text="5. Comparison result:">
+            <Label layoutX="20.0" layoutY="348.0" text="5. Результат поиска и сравнения:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Separator layoutX="20.0" layoutY="442.0" prefWidth="460.0" />
-            <Label layoutX="418.0" layoutY="470.0" text="Version: 2.0" />
+            <Label layoutX="418.0" layoutY="470.0" text="Версия: 2.0" />
          </children>
       </Pane>
    </children>
