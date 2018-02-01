@@ -1,5 +1,6 @@
 package engine.xls;
 
+import javafx.scene.control.Alert;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -54,8 +55,13 @@ public class SaveAsExlsFile {
                 //JOptionPane.showMessageDialog(null, "Файл создан!");
 
             } catch (IOException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, e);
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Dialog");
+                alert.setHeaderText("Чтение первого файла");
+                alert.setContentText("Ooops, there was an error!");
+
+                alert.showAndWait();
             }
 
 

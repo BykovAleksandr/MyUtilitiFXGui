@@ -36,11 +36,11 @@ public class ReadXlsFileFst {
                 }
             }
             fis.close();
-            JOptionPane.showMessageDialog(null, "Файл с искомыми значениями успешно загружен!");
+            //JOptionPane.showMessageDialog(null, "Файл с искомыми значениями успешно загружен!");
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
