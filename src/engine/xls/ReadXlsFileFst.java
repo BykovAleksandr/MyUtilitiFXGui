@@ -1,6 +1,7 @@
 package engine.xls;
 
 
+import javafx.scene.control.Alert;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -22,30 +23,27 @@ public class ReadXlsFileFst {
 
     public ReadXlsFileFst(String readWhatSerch) {
 
-        try {
-            FileInputStream fis = new FileInputStream(readWhatSerch);
-            Workbook wb = new HSSFWorkbook(fis);
+            try {
+                FileInputStream fis = new FileInputStream(readWhatSerch);
+                Workbook wb = new HSSFWorkbook(fis);
 
-            // init arrayList serch Value
-            for (Row row : wb.getSheetAt(0)) {
-                for (Cell cell : row) {
-                    String tmpString = ParserXlsFile.parserXlsFile(cell.toString());
-                    if (tmpString != null) {
-                        whatSerchArrayList.add(tmpString);
+                // init arrayList serch Value
+                for (Row row : wb.getSheetAt(0)) {
+                    for (Cell cell : row) {
+                        String tmpString = ParserXlsFile.parserXlsFile(cell.toString());
+                        if (tmpString != null) {
+                            whatSerchArrayList.add(tmpString);
+                        }
                     }
                 }
+                fis.close();
+                //JOptionPane.showMessageDialog(null, "Файл с искомыми значениями успешно загружен!");
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Re re");
+                //e.printStackTrace();
             }
-            fis.close();
-            //JOptionPane.showMessageDialog(null, "Файл с искомыми значениями успешно загружен!");
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, e);
-            //e.printStackTrace();
         }
-    }
-
-
-
     /*
     public static String getCellText(Cell cell){
 

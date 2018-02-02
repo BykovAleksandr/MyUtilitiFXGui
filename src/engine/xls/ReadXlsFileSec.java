@@ -1,6 +1,7 @@
 package engine.xls;
 
 
+import javafx.scene.control.Alert;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -17,31 +18,27 @@ public class ReadXlsFileSec {
     public static ArrayList<String> whearSerchArrayList = new ArrayList<>();
 
     public ReadXlsFileSec(String readWherSerch){
+            try {
+                FileInputStream fis = new FileInputStream(readWherSerch);
+                Workbook wb = new HSSFWorkbook(fis);
 
-        // read and write values in arrayList for the search
-        // Читаем/парсим/проверяем вернувшиеся данные на "null"
+                for (Row row : wb.getSheetAt(0)){
 
-        try {
-            FileInputStream fis = new FileInputStream(readWherSerch);
-            Workbook wb = new HSSFWorkbook(fis);
-
-            for (Row row : wb.getSheetAt(0)){
-
-                for (Cell cell : row){
-                    String tmpString = ParserXlsFile.parserXlsFile(cell.toString());
-                    if (tmpString != null){
-                        whearSerchArrayList.add(tmpString);
+                    for (Cell cell : row){
+                        String tmpString = ParserXlsFile.parserXlsFile(cell.toString());
+                        if (tmpString != null){
+                            whearSerchArrayList.add(tmpString);
+                        }
                     }
+
                 }
 
+                JOptionPane.showMessageDialog(null, "Файл Где ищем успешно загружен!");
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, e);
+                e.printStackTrace();
             }
-
-            JOptionPane.showMessageDialog(null, "Файл Где ищем успешно загружен!");
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, e);
-            e.printStackTrace();
-        }
     }
 /*
     public static String getCellText(Cell cell){

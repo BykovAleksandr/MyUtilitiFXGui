@@ -43,6 +43,8 @@ public class MainController {
     private ProgressIndicator thirdIndicator;
 
     private String savePath;
+    public static String fstPath;
+    public static String secPath;
 
     @FXML
     private void showDialogAbout(ActionEvent actionEvent) throws IOException {
@@ -71,7 +73,7 @@ public class MainController {
 
         if (file != null){
             fstChooeseLabel.setText(file.getCanonicalPath());
-
+            fstPath = file.getCanonicalPath();
             new ReadXlsFileFst(file.getCanonicalPath());
 
             DoWork task = new DoWork(ReadXlsFileFst.whatSerchArrayList.size());
@@ -87,8 +89,9 @@ public class MainController {
 
         if (file != null){
             secChooeseLabel.setText(file.getCanonicalPath());
-
+            secPath = file.getCanonicalPath();
             new ReadXlsFileSec(file.getCanonicalPath());
+
             DoWork task =  new DoWork(ReadXlsFileSec.whearSerchArrayList.size());
             secIndicator.progressProperty().bind(task.progressProperty());
             new Thread(task).start();
@@ -107,43 +110,14 @@ public class MainController {
     }
     @FXML
     private void startBtn(ActionEvent actionEvent) {
+/*
 
-        if (ReadXlsFileFst.whatSerchArrayList.size() == 0 && ReadXlsFileSec.whearSerchArrayList.size() == 0 && savePath == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка!");
-            alert.setHeaderText("Не выбраны файлы!");
-            alert.setContentText("Выберите файл с искомыми значениями" +
-                    "\n" + "Выберите файл с искомыми значениями" +
-                    "\n" + "Выберите путь и сохраните файл");
 
-            alert.showAndWait();
-        }
 
-        else if (ReadXlsFileFst.whatSerchArrayList.size() == 0){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка!");
-            alert.setHeaderText("Не выбран файл!");
-            alert.setContentText("Выберите файл с искомыми значениями");
-
-            alert.showAndWait();
-        }
-        else if (ReadXlsFileSec.whearSerchArrayList.size() == 0){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка!");
-            alert.setHeaderText("Не выбран файл!");
-            alert.setContentText("Выберите файл в котором ищите");
-
-            alert.showAndWait();
-        }
-        else if (savePath == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка!");
-            alert.setHeaderText("Файл не сохранен");
-            alert.setContentText("Выберите путь и сохраните файл");
-
-            alert.showAndWait();
-        }
+        else
+        else
         else {
+        */
             new EqualsIsNotEqualTo(ReadXlsFileFst.whatSerchArrayList, ReadXlsFileSec.whearSerchArrayList);
 
             DoWork task3 = new DoWork(ReadXlsFileFst.whatSerchArrayList.size());
@@ -157,7 +131,7 @@ public class MainController {
             // Result Lable
             fstResult.setText(String.valueOf(EqualsIsNotEqualTo.equalsValueArrayList.size()));
             secResult.setText(String.valueOf(EqualsIsNotEqualTo.notEqualsValueArrayList.size()));
-        }
+       // }
     }
 
 
