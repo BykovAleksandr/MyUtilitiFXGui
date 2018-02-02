@@ -33,7 +33,7 @@ public class ReadXlsFileSec {
 
                 }
 
-                JOptionPane.showMessageDialog(null, "Файл Где ищем успешно загружен!");
+                //JOptionPane.showMessageDialog(null, "Файл Где ищем успешно загружен!");
 
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e);

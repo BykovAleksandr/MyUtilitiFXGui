@@ -23,9 +23,9 @@ public class SaveAsExlsFile {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Ошибка!");
             alert.setHeaderText("Не выбраны файлы!");
-            alert.setContentText("Выберите файл с искомыми значениями" +
-                    "\n" + "Выберите файл с искомыми значениями" +
-                    "\n" + "Выберите путь и сохраните файл");
+            alert.setContentText("1. Выберите файл с искомыми значениями" +
+                    "\n" + "2. Выберите файл в котором ищите" +
+                    "\n" + "3. Выберите путь и сохраните файл");
 
             alert.showAndWait();
         }

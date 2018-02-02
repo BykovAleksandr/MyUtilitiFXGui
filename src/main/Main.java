@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../engine/fxml/main.fxml"));
-        primaryStage.setTitle("Search and compare equal and unequal");
+        primaryStage.setTitle("Поиск и равнение");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.setResizable(false);
         primaryStage.show();

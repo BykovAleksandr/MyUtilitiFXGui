@@ -1,5 +1,6 @@
 package engine.guiControllers;
 
+import engine.txt.ReadTxtFile;
 import engine.equalsUnequals.EqualsIsNotEqualTo;
 import engine.xls.ReadXlsFileFst;
 import engine.xls.ReadXlsFileSec;
@@ -7,10 +8,8 @@ import engine.xls.SaveAsExlsFile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.stage.FileChooser;
@@ -85,16 +84,29 @@ public class MainController {
     private void secChooseBtn(ActionEvent actionEvent) throws IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel 97-2003", "*.xls"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("txt", "*.txt"));
         File file = fileChooser.showOpenDialog(null);
 
         if (file != null){
             secChooeseLabel.setText(file.getCanonicalPath());
             secPath = file.getCanonicalPath();
-            new ReadXlsFileSec(file.getCanonicalPath());
 
-            DoWork task =  new DoWork(ReadXlsFileSec.whearSerchArrayList.size());
-            secIndicator.progressProperty().bind(task.progressProperty());
-            new Thread(task).start();
+            if (file.getCanonicalPath().contains(".xls"))
+            {
+                new ReadXlsFileSec(file.getCanonicalPath());
+
+                DoWork task =  new DoWork(ReadXlsFileSec.whearSerchArrayList.size());
+                secIndicator.progressProperty().bind(task.progressProperty());
+                new Thread(task).start();
+            }
+            else if (file.getCanonicalPath().contains(".txt")){
+
+                new ReadTxtFile(file.getCanonicalPath());
+
+                DoWork task =  new DoWork(ReadTxtFile.whearSerchCsvArrayList.size());
+                secIndicator.progressProperty().bind(task.progressProperty());
+                new Thread(task).start();
+            }
         }
     }
     @FXML
@@ -110,14 +122,7 @@ public class MainController {
     }
     @FXML
     private void startBtn(ActionEvent actionEvent) {
-/*
 
-
-
-        else
-        else
-        else {
-        */
             new EqualsIsNotEqualTo(ReadXlsFileFst.whatSerchArrayList, ReadXlsFileSec.whearSerchArrayList);
 
             DoWork task3 = new DoWork(ReadXlsFileFst.whatSerchArrayList.size());
